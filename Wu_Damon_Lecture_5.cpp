@@ -50,15 +50,18 @@ int main (){
 
     // if the value they put in is "Debit", the value inputted is taken from the starting amount, then the counter goes down, after, the total amount for debit increases. 
         if (type == "Debit"){
-         cout << "Your New Balance in your account is $" <<fixed<< setprecision(2)<< start - amttrans << ".\n";
+             total = total -amttrans;
         numtrans = numtrans - 1;
         Debit = Debit + amttrans;
+         cout << "Your New Balance in your account is $" <<fixed<< setprecision(2)<< total + start << ".\n";
+       
         }
     // if the value they put in is "Credit", starting amount increases by the value inputted, then the counter goes down, after, the total amount for Credit increases.
         else if(type == "Credit"){
-            cout << "Your new balance in your account is $" <<fixed<< setprecision(2)<< start + amttrans << ". \n";
-        numtrans = numtrans -1;
+                  total = total + amttrans;
+        numtrans = numtrans - 1;
         Credit = Credit + amttrans;
+            cout << "Your new balance in your account is $" <<fixed<< setprecision(2)<< total + start << ". \n";
         }
     
     //if the number of transactions equals 0, outputs the total amount of Credit and Debit accumulated, then asks the user if anyone else is using the machine, if so, the loop continues, if not, the program says bye. 
@@ -78,4 +81,30 @@ int main (){
         }
     }
     }
+    /*
+    Hello, please put in how much money you have in your bank account right now. 
+    450 
+    How many transactions you have done today? 
+    3 
+    Ok, what kind of transaction do you want to make, Credit or Debit? 'please note that this is case sensitive.' 
+    Credit 
+    How much was the transaction you made? 
+    50 
+    Your new balance in your account is $500.00. 
+    Ok, what kind of transaction do you want to make, Credit or Debit? 'please note that this is case sensitive.' 
+    Debit 
+    How much was the transaction you made? 
+    30 
+    Your New Balance in your account is $470.00.
+    Ok, what kind of transaction do you want to make, Credit or Debit? 'please note that this is case sensitive.' 
+    Debit 
+    How much was the transaction you made? 
+    20 
+    Your New Balance in your account is $450.00.
+    Total credit addition: $50.00
+    Total debit decrease: $50.00
+    Is there someone else who wants to use the machine? If not, press 'N' or 'n' to end operations.  '
+    N
+    Have a good day!
+    */
 }
